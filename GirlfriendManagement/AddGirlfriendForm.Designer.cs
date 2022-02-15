@@ -102,6 +102,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "Random";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -118,6 +119,7 @@
             this.ratingControl1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ratingControl1.Location = new System.Drawing.Point(17, 196);
             this.ratingControl1.Name = "ratingControl1";
+            this.ratingControl1.Rating = 0F;
             this.ratingControl1.Size = new System.Drawing.Size(433, 87);
             this.ratingControl1.TabIndex = 8;
             // 
@@ -130,6 +132,7 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "Přidat";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // AddGirlfriendForm
             // 

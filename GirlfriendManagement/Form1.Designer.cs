@@ -65,10 +65,10 @@
             // 
             // ratingControl1
             // 
-            this.ratingControl1.Location = new System.Drawing.Point(172, 269);
+            this.ratingControl1.Location = new System.Drawing.Point(233, 219);
             this.ratingControl1.Name = "ratingControl1";
             this.ratingControl1.Rating = 0F;
-            this.ratingControl1.Size = new System.Drawing.Size(400, 80);
+            this.ratingControl1.Size = new System.Drawing.Size(404, 87);
             this.ratingControl1.TabIndex = 4;
             // 
             // canvas1
