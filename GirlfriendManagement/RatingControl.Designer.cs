@@ -36,6 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "RatingControl";
             this.Size = new System.Drawing.Size(400, 80);
+            this.SizeChanged += new System.EventHandler(this.RatingControl_SizeChanged);
             this.ResumeLayout(false);
 
         }

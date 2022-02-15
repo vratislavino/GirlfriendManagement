@@ -29,6 +29,7 @@ namespace GirlfriendManagement
         private void OnRatingChanged(RatingControl obj)
         {
             rating = obj.Rating;
+            Console.WriteLine("New rating: " + rating);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -55,10 +56,11 @@ namespace GirlfriendManagement
                         newGirlfriend = new Girlfriend()
                         {
                             Name = textBox1.Text,
-                            Rating = rating,
+                            Rating = rating + 0.5f,
                             X = x,
                             Y = y
                         };
+                        Close();
                     }
                 }
             }

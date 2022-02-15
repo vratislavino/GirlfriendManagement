@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.checkbox1 = new GirlfriendManagement.Checkbox();
             this.button1 = new System.Windows.Forms.Button();
+            this.ratingControl1 = new GirlfriendManagement.RatingControl();
+            this.checkbox1 = new GirlfriendManagement.Checkbox();
             this.SuspendLayout();
             // 
             // label1
@@ -43,14 +44,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Jméno";
             // 
-            // checkbox1
-            // 
-            this.checkbox1.IsChecked = false;
-            this.checkbox1.Location = new System.Drawing.Point(175, 13);
-            this.checkbox1.Name = "checkbox1";
-            this.checkbox1.Size = new System.Drawing.Size(49, 48);
-            this.checkbox1.TabIndex = 1;
-            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -61,10 +54,29 @@
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // ratingControl1
+            // 
+            this.ratingControl1.AllowDrop = true;
+            this.ratingControl1.Location = new System.Drawing.Point(19, 41);
+            this.ratingControl1.MySize = 20;
+            this.ratingControl1.Name = "ratingControl1";
+            this.ratingControl1.Rating = 0F;
+            this.ratingControl1.Size = new System.Drawing.Size(100, 20);
+            this.ratingControl1.TabIndex = 3;
+            // 
+            // checkbox1
+            // 
+            this.checkbox1.IsChecked = false;
+            this.checkbox1.Location = new System.Drawing.Point(175, 13);
+            this.checkbox1.Name = "checkbox1";
+            this.checkbox1.Size = new System.Drawing.Size(49, 48);
+            this.checkbox1.TabIndex = 1;
+            // 
             // GirlfriendDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ratingControl1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.checkbox1);
             this.Controls.Add(this.label1);
@@ -80,5 +92,6 @@
         private System.Windows.Forms.Label label1;
         private Checkbox checkbox1;
         private System.Windows.Forms.Button button1;
+        private RatingControl ratingControl1;
     }
 }

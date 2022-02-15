@@ -22,6 +22,10 @@ namespace GirlfriendManagement
 
         Panel[] panels = new Panel[5];
 
+        private int size = 80;
+
+        public int MySize { get; set; } = 80;
+
         public float Rating
         {
             get { return rating; }
@@ -41,9 +45,15 @@ namespace GirlfriendManagement
             CreatePanels();
         }
 
+        public RatingControl(int size) : this()
+        {
+            this.size = size;
+        }
+
         private void CreatePanels()
         {
-            int size = 80;
+            this.Controls.Clear();
+            this.size = MySize;
             for (int i = 0; i < panels.Length; i++)
             {
                 var panel = new Panel();
@@ -55,10 +65,13 @@ namespace GirlfriendManagement
                 this.Controls.Add(panel);
                 panels[i] = panel;
             }
+            this.Size = new Size(panels.Length * size, size);
         }
 
         private void OnStarClicked(object sender, MouseEventArgs e)
         {
+            if (!Enabled)
+                return;
             float newRating = 0;
             int index = -1;
             for (int i = 0; i < panels.Length; i++)
@@ -106,6 +119,11 @@ namespace GirlfriendManagement
                     panels[i].BackgroundImage = empty;
                 }
             }
+        }
+
+        private void RatingControl_SizeChanged(object sender, EventArgs e)
+        {
+            CreatePanels();
         }
     }
 }
