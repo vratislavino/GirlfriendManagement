@@ -9,11 +9,11 @@ namespace GirlfriendManagement
 {
     public class MapPoint
     {
-        private Color color;
+        private Pen pen = new Pen(Color.Red, 3f);
         private int x;
         private int y;
 
-        private int size;
+        private int size = 12;
 
         public int X { 
             get { return x; }
@@ -24,9 +24,22 @@ namespace GirlfriendManagement
             set { y = value; }
         }
 
+        public bool Highlight { get; set; }
+
         public void Draw(Graphics g)
         {
-            g.DrawEllipse(new Pen(color), x - size / 2, Y - size / 2, size, size);
+            if(Highlight)
+            {
+                g.FillEllipse(Brushes.Red, x - size / 2, y - size / 2, size, size);
+            } else
+            {
+                g.DrawEllipse(pen, x - size / 2, y - size / 2, size, size);
+            }
+        }
+
+        public float GetDistance(Point mouse)
+        {
+            return (float)Math.Sqrt(Math.Pow(mouse.X - x, 2) + Math.Pow(mouse.Y - y, 2));
         }
     }
 }

@@ -17,6 +17,30 @@ namespace GirlfriendManagement
         public Form1()
         {
             InitializeComponent();
+            canvas1.MapPointHighlighted += OnMapPointHighlighted;
+            ProcessNewGirlfriend(new Girlfriend() { Name = "Alenka", X = 50, Y = 279, Rating = 3.5f });
+            ProcessNewGirlfriend(new Girlfriend() { Name = "Zuzana", X = 258, Y = 431, Rating = 1.5f });
+            ProcessNewGirlfriend(new Girlfriend() { Name = "Kunhuta", X = 685, Y = 18, Rating = 4f });
+            ProcessNewGirlfriend(new Girlfriend() { Name = "Lenka", X = 722, Y = 125, Rating = 2f });
+        }
+
+        private void OnMapPointHighlighted(MapPoint point)
+        {
+            foreach (var gfd in girlfriends)
+            {
+                gfd.BackColor = gfd.MapPoint == point ? Color.Green : Color.White;
+            }
+        } 
+
+        private void AddGirlfriend(GirlfriendDisplay gfd)
+        {
+            girlfriends.Add(gfd);
+            canvas1.UpdateMapPoints(girlfriends.Select(x=>x.MapPoint));
+        }
+
+        private void RemoveGirlfriend(GirlfriendDisplay gfd)
+        {
+            girlfriends.Remove(gfd);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,7 +60,8 @@ namespace GirlfriendManagement
             GirlfriendDisplay girlfriendDisplay = new GirlfriendDisplay();
             girlfriendDisplay.AddData(gf);
 
-            girlfriends.Add(girlfriendDisplay);
+            AddGirlfriend(girlfriendDisplay); //girlfriends.Add(girlfriendDisplay);
+
             flowLayoutPanel1.Controls.Add(girlfriendDisplay);
         }
     }

@@ -15,6 +15,8 @@ namespace GirlfriendManagement
         Girlfriend girlfriend;
         MapPoint mapPoint;
 
+        public MapPoint MapPoint => mapPoint;
+
         public GirlfriendDisplay()
         {
             InitializeComponent();
