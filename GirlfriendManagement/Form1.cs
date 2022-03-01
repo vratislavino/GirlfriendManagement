@@ -38,9 +38,12 @@ namespace GirlfriendManagement
             canvas1.UpdateMapPoints(girlfriends.Select(x=>x.MapPoint));
         }
 
-        private void RemoveGirlfriend(GirlfriendDisplay gfd)
+        private void RemoveGirlfriend(GirlfriendDisplay gf)
         {
-            girlfriends.Remove(gfd);
+            girlfriends.Remove(gf);
+            flowLayoutPanel1.Controls.Remove(gf);
+            canvas1.UpdateMapPoints(girlfriends.Select(x => x.MapPoint));
+            canvas1.Refresh();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -58,11 +61,30 @@ namespace GirlfriendManagement
         private void ProcessNewGirlfriend(Girlfriend gf)
         {
             GirlfriendDisplay girlfriendDisplay = new GirlfriendDisplay();
+            girlfriendDisplay.DeleteRequested += OnGirlfriendDeleteRequested;
             girlfriendDisplay.AddData(gf);
 
             AddGirlfriend(girlfriendDisplay); //girlfriends.Add(girlfriendDisplay);
 
             flowLayoutPanel1.Controls.Add(girlfriendDisplay);
+        }
+
+        private void OnGirlfriendDeleteRequested(GirlfriendDisplay gf)
+        {
+            RemoveGirlfriend(gf);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var pointsInOrder = girlfriends.Where(gf => gf.IsAvailable).Select(x => x.MapPoint).ToList().FindShortestPath(new StartPoint() { X = 0, Y = 0 });
+
+            string s = "";
+            foreach (var point in pointsInOrder)
+            {
+                s += point;
+            }
+
+            MessageBox.Show(s);
         }
     }
 }

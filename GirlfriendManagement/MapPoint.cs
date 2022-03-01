@@ -9,11 +9,11 @@ namespace GirlfriendManagement
 {
     public class MapPoint
     {
-        private Pen pen = new Pen(Color.Red, 3f);
-        private int x;
-        private int y;
+        protected Pen pen = new Pen(Color.Red, 3f);
+        protected int x;
+        protected int y;
 
-        private int size = 12;
+        protected int size = 12;
 
         public int X { 
             get { return x; }
@@ -40,6 +40,11 @@ namespace GirlfriendManagement
         public float GetDistance(Point mouse)
         {
             return (float)Math.Sqrt(Math.Pow(mouse.X - x, 2) + Math.Pow(mouse.Y - y, 2));
+        }
+
+        public override string ToString()
+        {
+            return $"[{X},{Y}]";
         }
     }
 }

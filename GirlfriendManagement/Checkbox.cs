@@ -49,6 +49,7 @@ namespace GirlfriendManagement
 
         private void Checkbox_Paint(object sender, PaintEventArgs e)
         {
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             e.Graphics.DrawRectangle(outlinePen, 0,0, Width, Height);
             if(IsChecked)
             {

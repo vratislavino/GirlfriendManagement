@@ -12,8 +12,12 @@ namespace GirlfriendManagement
 {
     public partial class GirlfriendDisplay : UserControl
     {
+        public event Action<GirlfriendDisplay> DeleteRequested;
+
         Girlfriend girlfriend;
         MapPoint mapPoint;
+
+        public bool IsAvailable => checkbox1.IsChecked;
 
         public MapPoint MapPoint => mapPoint;
 
@@ -32,6 +36,11 @@ namespace GirlfriendManagement
             }; 
             ratingControl1.Enabled = false;
             ratingControl1.Rating = data.Rating - 0.5f;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DeleteRequested?.Invoke(this);
         }
     }
 }

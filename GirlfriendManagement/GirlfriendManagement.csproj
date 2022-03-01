@@ -64,6 +64,7 @@
     <Compile Include="Checkbox.Designer.cs">
       <DependentUpon>Checkbox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extensions.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +87,7 @@
     <Compile Include="RatingControl.Designer.cs">
       <DependentUpon>RatingControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="StartPoint.cs" />
     <EmbeddedResource Include="AddGirlfriendForm.resx">
       <DependentUpon>AddGirlfriendForm.cs</DependentUpon>
     </EmbeddedResource>
